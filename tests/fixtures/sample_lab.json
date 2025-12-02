@@ -1,0 +1,99 @@
+{
+  "lab_id": "2.1.3",
+  "title": "Basic Router Configuration",
+  "chapter": "2",
+  "objective": "Configure basic settings on a Cisco router including hostname, passwords, and interfaces.",
+  "steps": [
+    {
+      "id": "1",
+      "desc": "Access the router CLI and enter privileged EXEC mode",
+      "cmds": [
+        "enable"
+      ],
+      "checklist": [
+        "Router prompt shows #"
+      ]
+    },
+    {
+      "id": "2",
+      "desc": "Enter global configuration mode",
+      "cmds": [
+        "configure terminal"
+      ],
+      "checklist": [
+        "Router prompt shows (config)#"
+      ]
+    },
+    {
+      "id": "3",
+      "desc": "Configure the router hostname",
+      "cmds": [
+        "hostname R1"
+      ],
+      "checklist": [
+        "Prompt changes to R1(config)#"
+      ]
+    },
+    {
+      "id": "4",
+      "desc": "Configure the enable secret password",
+      "cmds": [
+        "enable secret class"
+      ],
+      "checklist": [
+        "Password is encrypted in config"
+      ]
+    },
+    {
+      "id": "5",
+      "desc": "Configure console line password",
+      "cmds": [
+        "line console 0",
+        "password cisco",
+        "login",
+        "exit"
+      ],
+      "checklist": [
+        "Console requires password on login"
+      ]
+    },
+    {
+      "id": "6",
+      "desc": "Configure VTY lines for remote access",
+      "cmds": [
+        "line vty 0 4",
+        "password cisco",
+        "login",
+        "exit"
+      ],
+      "checklist": [
+        "VTY lines accept connections",
+        "Password is required for telnet"
+      ]
+    },
+    {
+      "id": "7",
+      "desc": "Save the configuration",
+      "cmds": [
+        "copy running-config startup-config"
+      ],
+      "checklist": [
+        "Configuration saved to NVRAM"
+      ]
+    }
+  ],
+  "qa": [
+    {
+      "q": "What command enters privileged EXEC mode?",
+      "a": "The 'enable' command is used to enter privileged EXEC mode from user EXEC mode."
+    },
+    {
+      "q": "What is the difference between enable password and enable secret?",
+      "a": "The enable secret is more secure because it uses MD5 encryption, while enable password stores the password in clear text."
+    },
+    {
+      "q": "How many VTY lines are typically available on a Cisco router?",
+      "a": "Cisco routers typically have 5 VTY lines (0-4) for remote access via Telnet or SSH."
+    }
+  ]
+}
